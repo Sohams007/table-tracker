@@ -1,31 +1,52 @@
-let listContainer = document.getElementById('list-container')
-let head = document.querySelector('head')
-let inputBox = document.getElementById('input-box')
+let listContainer = document.getElementById('list-container');
 
-function handleKeyPress(event) {
-    // Check if the pressed key is Enter (key code 13)
+function handleKeyPress(event, inputNumber) {
     if (event.keyCode === 13) {
-        // Call the addTask function
-        addTask();
+        let nextInputBox = document.getElementById(`input-box${inputNumber + 1}`);
+        if (nextInputBox) {
+            nextInputBox.focus();
+        } else {
+            addTask();
+            document.getElementById('input-box1').focus(); // Set focus to the first input box
+        }
+        event.preventDefault();
     }
 }
 
-function addTask(){
-    if(inputBox.value == ''){
-        alert('Please Enter the Text')
+function addTask() {
+    let inputBox1 = document.getElementById('input-box1');
+    let inputBox2 = document.getElementById('input-box2');
+    let inputBox3 = document.getElementById('input-box3');
+    let inputBox4 = document.getElementById('input-box4');
+
+    let value1 = inputBox1.value;
+    let value2 = inputBox2.value;
+    let value3 = inputBox3.value;
+    let value4 = inputBox4.value;
+
+    let concatenatedValue = `${value1}___${value2}___${value3}___${value4}`;
+
+    if (concatenatedValue.trim() === '') {
+        alert('Please enter text in all input boxes.');
+        return;
     }
-    else{
-        const task = document.createElement('li')
-        task.textContent = inputBox.value;
-        listContainer.appendChild(task)
-        // inputBox.value = ''
-        let span = document.createElement('span')
-        span.textContent = "\u00d7"
-        task.appendChild(span)
-        span.style.right = '0px';
-    }
-    inputBox.value = '';
-    saveData()
+
+    const task = document.createElement('li');
+    task.textContent = concatenatedValue;
+    listContainer.appendChild(task);
+
+    let span = document.createElement('span');
+    span.textContent = "\u00d7";
+    task.appendChild(span);
+    span.style.right = '0px';
+
+    // Clear input boxes after adding task
+    inputBox1.value = '';
+    inputBox2.value = '';
+    inputBox3.value = '';
+    inputBox4.value = '';
+
+    saveData();
 }
 
 listContainer.addEventListener('click', (e)=>{
@@ -39,23 +60,17 @@ listContainer.addEventListener('click', (e)=>{
     }
 })
 
-function saveData(){
-    localStorage.setItem("data",listContainer.innerHTML)
+function saveData() {
+    localStorage.setItem("data", listContainer.innerHTML);
 }
 
-function showTask(){
+function showTask() {
     listContainer.innerHTML = localStorage.getItem("data");
 }
 
-showTask()
+showTask();
 
-// Function to handle the click event of the back button
-function goBack() {
-    // Redirect the current tab to the dashboard URL
-    window.location.href = "../../Main Dashboard/MDindex.html";
-}
-
-
-
-// navigation js
-
+document.getElementById('input-box1').addEventListener('keydown', (event) => handleKeyPress(event, 1));
+document.getElementById('input-box2').addEventListener('keydown', (event) => handleKeyPress(event, 2));
+document.getElementById('input-box3').addEventListener('keydown', (event) => handleKeyPress(event, 3));
+document.getElementById('input-box4').addEventListener('keydown', (event) => handleKeyPress(event, 4));

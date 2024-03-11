@@ -45,19 +45,31 @@ h2{
 
 .row{
     display: flex;
+    flex-direction: column;
+    gap: 10px;
     align-items: center;
     justify-content: space-between;
     /* background: #edeef0; */
     background: #fff;
     border: none;
-    outline: 3px groove #000;
+    /* outline: 3px groove #000; */
     outline-offset: 5px;
     border-radius: 30px;
     padding-left: 20px;
     margin-bottom: 25px;
-    box-shadow: 0px 0px 10px #5d5d5d;
+    /* box-shadow: 0px 0px 10px #5d5d5d; */
 }
-
+.input-section{
+    width: 100%;
+    display: flex;
+    gap: 5px;
+}
+.input-section input{
+    width: 5%;
+    border: 1px solid black !important;
+    border-radius: 20px;
+    font-size: 14px !important;
+}
 .row input{
     flex: 1; /*text full availabe width*/
     border:none ;
