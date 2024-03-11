@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waiting List | Table Tracker</title>
+    <link rel="stylesheet" href="wtstyles.css">
+    <link rel="stylesheet" href="../Main Dashboard/style.css">
+</head>
+<body>
+
+    <div class="navigation">
+        <ul>
+            <li>
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="people-circle-outline"></ion-icon>
+                    </span>
+                    <span class="title">Table Tracker</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="../Main Dashboard/MDindex.html">
+                    <span class="icon">
+                        <ion-icon name="home-outline"></ion-icon>
+                    </span>
+                    <span class="title">Dashboard</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="../sidewaitinglist/waitlst.html" target="">
+                    <span class="icon">
+                        <ion-icon name="people-outline"></ion-icon>
+                    </span>
+                    <span class="title">Waiting List</span>
+                </a>
+            </li>
+            
+            <li>
+                <a href="#">
+                    <span class="icon">
+                        <ion-icon name="help-outline"></ion-icon>
+                    </span>
+                    <span class="title">Help</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="../loginpage/cngpsd.html">
+                    <span class="icon">
+                        <ion-icon name="lock-closed-outline"></ion-icon>
+                    </span>
+                    <span class="title">Change Password</span>
+                </a>
+            </li>
+
+            <li>
+                <a href="../loginpage/index.html">
+                    <span class="icon">
+                        <ion-icon name="log-out-outline"></ion-icon>
+                    </span>
+                    <span class="title">Sign Out</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="container">
+        <div class="todo-app">
+            <h2>Waiting List <img src="../assets/icon.png"></h2>
+
+            <div class="row">
+                <input type="text" name="" id="input-box" placeholder="name & no.of people" onkeypress="handleKeyPress(event)">
+                <button onclick="addTask()">Add Guest</button>
+            </div>
+            
+
+            <ul id="list-container" class="waiting-list">
+                <li>Task 1</li>
+                <li>Task 2</li>
+                <li>Task 3</li>
+            </ul>
+            <button class="back-button" onclick="goBack()">Back</button>
+        </div>
+    </div>
+
+
+    <!-- <script>
+        // JavaScript Code
+        let list = document.querySelectorAll(".navigation li");
+
+        function activeLink() {
+            list.forEach((item) => {
+                item.classList.remove("hovered");
+            });
+            this.classList.add("hovered");
+        }
+
+        list.forEach((item) => item.addEventListener("mouseover", activeLink));
+
+        let toggle = document.querySelector(".toggle");
+        let navigation = document.querySelector(".navigation");
+        let main = document.querySelector(".main");
+
+        toggle.onclick = function () {
+            navigation.classList.toggle("active");
+            main.classList.toggle("active");
+        };
+    </script> -->
+
+    
+<!-- scripts -->
+    <script src="wtapp.js"></script>
+   
+   
+
+    <!-- ====== ionicons ======= -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+</body>
+</html>
