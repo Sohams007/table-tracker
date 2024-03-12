@@ -26,6 +26,10 @@
     font-size: 36px;
     text-align: center;
   }
+  .wrapper h2{
+    font-size: 30px;
+    text-align: center;
+  }
   .wrapper .input-box{
     position: relative;
     width: 100%;
@@ -102,5 +106,8 @@
   .register-link p a:hover{
     text-decoration: underline;
   }
-  
+  .logo{
+    width: 160px;
+    margin-left: 85px;
+  }
   
